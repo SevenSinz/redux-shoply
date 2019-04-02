@@ -1,10 +1,24 @@
 import React, { Component } from "react";
 import Item from './Item';
 import dbObj from './db.json';
+import { add, remove } from './actions';
+import { connect } from 'react-redux';
 
 // console.log("dbObj = ", dbObj )
 
 class ItemList extends Component {
+
+    constructor(props) {
+        super(props);
+        this.addItem = this.addItem.bind(this);
+        this.removeItem = this.removeItem.bind(this);
+    }
+
+    addItem(taco) { 
+        console.log('additem item??', taco)
+        this.props.add(taco) 
+    }
+    removeItem(id) { this.props.remove(id) }
 
     render(){
 
@@ -13,6 +27,8 @@ class ItemList extends Component {
                                                 name={i.name}
                                                 price={i.price}
                                                 image_url={i.image_url}
+                                                triggerAdd={this.addItem}
+                                                triggerRemove={this.removeItem}
                                             />)
 
         return(
@@ -23,6 +39,18 @@ class ItemList extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        cart: state.cart
+    };
+}
 
+const mapDispatchToProps ={
+    add,
+    remove,
+};
 
-export default ItemList;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ItemList);

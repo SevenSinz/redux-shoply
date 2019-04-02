@@ -9,6 +9,8 @@ function reducer(state = INITIAL_STATE, action) {
     let newCart;
 
     if (action.type === ADD) {
+        console.log('we got to reducer add')
+        console.log('state now is?', state)
         newCart = [...state.cart, action.payload]
         return {
             cart: newCart
@@ -16,7 +18,7 @@ function reducer(state = INITIAL_STATE, action) {
     }
 
     if (action.type === REMOVE) {
-        newCart = state.cart.filter(i => i.id !== action.payload.id)
+        newCart = state.cart.filter(i => i.id !== action.payload)
         return {
             cart: newCart
         }
