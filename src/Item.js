@@ -12,13 +12,13 @@ class Item extends Component {
     }
 
     handleAdd(e) {
-        let i = {
+        let itemToAdd = {
             id: this.props.id,
             name: this.props.name,
             price: this.props.price,
             image_url: this.props.image_url
         }
-        this.props.triggerAdd(i);
+        this.props.triggerAdd(itemToAdd);
     }
 
     handleRemove(e) {
@@ -46,7 +46,5 @@ class Item extends Component {
         )
     }
 }
-
-
 
 export default Item;

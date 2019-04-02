@@ -8,9 +8,6 @@ import { connect } from 'react-redux';
 
 class ItemList extends Component {
 
-    constructor(props) {
-        super(props);
-    }
 
     render(){
 

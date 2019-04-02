@@ -16,6 +16,7 @@ function reducer(state = INITIAL_STATE, action) {
         let foundIdex = state.cart.findIndex(
             c => c.id === item.id
         );
+        
         if (foundIdex === -1) {
             let newCart = [...state.cart, { ...item, total: 1 }]
             console.log('state after adding new: ', state)
