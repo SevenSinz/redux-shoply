@@ -23,9 +23,13 @@ class ItemList extends Component {
                                                 triggerRemove={this.props.remove}
                                             />)
 
+        let totalItems = this.props.cart.length;
+        console.log("totalItems = ", totalItems);
         return(
+            <div>Total Items: {totalItems} 
             <div className='ItemList'>
             {items}
+            </div>
             </div>
         )
     }
