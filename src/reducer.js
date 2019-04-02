@@ -9,8 +9,6 @@ function reducer(state = INITIAL_STATE, action) {
     let newCart;
 
     if (action.type === ADD) {
-        console.log('we got to reducer add')
-        console.log('state now is?', state)
         newCart = [...state.cart, action.payload]
         return {
             cart: newCart
