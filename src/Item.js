@@ -25,9 +25,9 @@ class Item extends Component {
         this.props.triggerRemove(this.props.id);
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return false;
-    }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return false;
+    // }
 
     render(){
         return(

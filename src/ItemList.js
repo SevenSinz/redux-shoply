@@ -23,10 +23,9 @@ class ItemList extends Component {
                                                 triggerRemove={this.props.remove}
                                             />)
 
-        let totalItems = this.props.cart.length;
-        console.log("totalItems = ", totalItems);
+        console.log("cart and totalItems", this.props.cart, this.props.totalItems);
         return(
-            <div>Total Items: {totalItems} 
+            <div>Total Items: {this.props.totalItems} 
             <div className='ItemList'>
             {items}
             </div>
@@ -37,7 +36,8 @@ class ItemList extends Component {
 
 function mapStateToProps(state) {
     return {
-        cart: state.cart
+        cart: state.cart,
+        totalItems: state.totalItems
     };
 }
 
