@@ -9,7 +9,6 @@ class Item extends Component {
         super(props);
         this.handleAdd = this.handleAdd.bind(this);
         this.handleRemove = this.handleRemove.bind(this);
-
     }
 
     handleAdd(e) {
@@ -40,9 +39,8 @@ class Item extends Component {
             </div>
                 <img src={this.props.image_url} alt=''></img>
             <div>   
-                
-                <button onClick={this.props.triggerAdd}> Add to Cart </button>
-                <button onClick={this.props.triggerRemove}> Remove from Cart </button>
+                <button onClick={this.handleAdd}> Add to Cart </button>
+                <button onClick={this.handleRemove}> Remove from Cart </button>
             </div>
             </div>
         )
