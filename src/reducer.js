@@ -34,10 +34,26 @@ function reducer(state = INITIAL_STATE, action) {
     if (action.type === REMOVE) {
         console.log('we got to reducer remove')
         console.log('state after remove: ', state)
-        newCart = state.cart.filter(i => i.id !== action.payload)
-        return {
-            cart: newCart,
-            totalItems: state.totalItems - 1
+
+        let id = action.payload;
+        let foundIdex = state.cart.findIndex(
+            c => c.id === id
+        );
+
+        if (state.cart[foundIdex].total === 1)  {
+            newCart = state.cart.filter(i => i !== state.cart[foundIdex])
+                    return {
+                        cart: newCart,
+                        totalItems: state.totalItems - 1
+                    }
+        } else {
+            newCart = state.cart.map( i =>  
+                        i !== state.cart[foundIdex] ? i : {...i, total: i.total-1} 
+                    ) 
+            return {
+                cart: newCart,
+                totalItems: state.totalItems - 1
+            }
         }
     }
 
